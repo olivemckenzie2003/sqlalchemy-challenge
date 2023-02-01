@@ -41,6 +41,9 @@ def welcome():
         f"/api/v1.0/tobs<br/>"
         f"/api/v1.0/start<br/>"
         f"/api/v1.0/start/end<br/>"
+
+
+        f"/api/v1.0/precipitation<br/>"        f"/api/v1.0/stations<br/>"        f"/api/v1.0/tobs<br/>"        f"/api/v1.0/start<br/>"        f"/api/v1.0/start/end<br/>"
        
         
     )
@@ -177,16 +180,20 @@ def tobs():
 
 #Return a JSON list of the minimum temperature, the average temperature, and the maximum temperature for a specified start or start-end range.
 
-@app.route("/api/v1.0/<start>")
+@app.route("/api/v1.0/start")
 # Define function, set "start" date 
-def start_date(start):
+def start_date(start=None):
     session = Session(engine) 
 
     """Return a JSON list of the minimum temperature, the average temperature, and the max temperature for a given start date."""
 
+    start = dt.datetime.strptime(start, "%m%d%Y")
+
     # Create query for minimum, average, and max tobs where query date is greater than or equal to the date 
+
     start_date_tobs_results = session.query(func.min(Measurement.tobs),func.avg(Measurement.tobs),func.max(Measurement.tobs)).\
         filter(Measurement.date==start).all()
+
     
     session.close() 
 
@@ -204,9 +211,10 @@ def start_date(start):
 
 
 #Question 5B
-@app.route("/api/v1.0/<start>")
+@app.route("/api/v1.0/start")
+
 # Define function, set "start" date 
-def start_date_two(start):
+def start_date_two(start=None):
     session = Session(engine) 
 
     """Return a JSON list of the minimum temperature, the average temperature, and the max temperature for a given start date."""
@@ -231,8 +239,7 @@ def start_date_two(start):
 
 #Question 5C
 #For a specified start date and end date, calculate Tmin, Tavg, and Tmax for the dates from the start date to the end date, inclusive.
-app.route("/api/v1.0/<start>/<end>")
-
+app.route("/api/v1.0/start/end")
 
 # Define function, set start and end dates 
 def Start_end_date(start, end):
