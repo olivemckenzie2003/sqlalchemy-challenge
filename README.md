@@ -93,7 +93,16 @@ Output: [(54.0, 71.66378066378067, 85.0)]
 Last 12 months of temperature observation data for this station and plot the results as a histogram
 
 ![output2](https://user-images.githubusercontent.com/115945473/216272849-fc1d5bb3-7a78-463c-88a9-063264aae136.png)
-  
+
+Close session
+
+code: session.close()
+
+
+
+
+
+
  
 File app.py contains a Climate App using a Flask API to create routes which are as follows:
 
@@ -184,7 +193,10 @@ Output:
 
 
 
+Resources Folder contains hawaii.sqlite, hawaii_measurements.csv and hawaii_stations.csv
 
+   
+   
 
 
 
