@@ -55,30 +55,91 @@ climate_starter.ipynb contains the SQLAlchemy code used to:
   ![output2](https://user-images.githubusercontent.com/115945473/216205694-22b00a49-ad5b-48d5-931e-a79848ab08c8.png)
   
   
- api/v1.0/precipitation
-/api/v1.0/stations
-/api/v1.0/tobs
-/api/v1.0/start
-/api/v1.0/start/end
 
 
 
 
+File app.py contains a Climate App using a Flask API to create your routes which are as follows:
+
+Create root route Start at HomePage
+@app.route("/")
+def welcome():
+
+All available API routes
+
+f"/api/v1.0/precipitation<br/>"
+f"/api/v1.0/stations<br/>"
+f"/api/v1.0/tobs<br/>"
+f"/api/v1.0/start<br/>"
+f"/api/v1.0/start/end<br/>"
+
+Call to the routes
+
+Route that returns a JSON Precipitation analysis
+@app.route("/api/v1.0/precipitation") 
+def precipitation():
+
+Route that returns a JSON list of stations from the database
+@app.route("/api/v1.0/stations")
+def station():
 
 
+
+Route that returns JSON list of the temperatures observed for the last year for the most active station 
+@app.route("/api/v1.0/tobs") 
+def tobs():
+
+
+@app.route("/api/v1.0/<start>")
+@app.route("/api/v1.0/<start>/<end>")
+def start_date_two(start=None,end=None):
+
+.
+
+Compile without debugging app.py file 
+
+
+Host computer http address
+Paste http://127.0.0.1:5000/ into chrome browser
+
+ Output:   
 ![Screenshot (1193)](https://user-images.githubusercontent.com/115945473/216206773-00ddb980-6e4b-4b88-9195-20a0420f547f.png)
+   
+Precipitation
+Paste http://127.0.0.1:5000/api/v1.0/precipitation into chrome browser
 
+ Output:
+![Screenshot (1194)](https://user-images.githubusercontent.com/115945473/216206794-995a235b-88ee-4874-889d-c05f92a44bf2.png)
+   
+   
+Stations
+Paste http://127.0.0.1:5000/api/v1.0/stations into chrome browser
+Output:
 
+![Screenshot (1195)](https://user-images.githubusercontent.com/115945473/216206804-d3d8c2fd-d951-4820-b7d9-6f9c963cf25d.png)  
+   
+   
+ Paste http://127.0.0.1:5000/api/v1.0/tobs into chrome browser
+ Output:  
+  
+   
+Start Date 
+Paste http://127.0.0.1:5000/api/v1.0/2016-08-02 into chrome browser
+Output: ![Screenshot (1196)](https://user-images.githubusercontent.com/115945473/216206754-9fe46abf-bc3b-40cd-81a3-e2e2b21566fa.png) 
 
+ 
+Start Date and End date
+Paste http://127.0.0.1:5000/api/v1.0/2016-08-02/2016-10-01 into chrome browser
+Output:
 ![Screenshot (1197)](https://user-images.githubusercontent.com/115945473/216206719-2161e04e-96c0-41fd-882a-949de993175a.png)
 
 
 
 
 
-![Screenshot (1196)](https://user-images.githubusercontent.com/115945473/216206754-9fe46abf-bc3b-40cd-81a3-e2e2b21566fa.png)
 
 
-![Screenshot (1194)](https://user-images.githubusercontent.com/115945473/216206794-995a235b-88ee-4874-889d-c05f92a44bf2.png)
 
-![Screenshot (1195)](https://user-images.githubusercontent.com/115945473/216206804-d3d8c2fd-d951-4820-b7d9-6f9c963cf25d.png)
+
+
+
