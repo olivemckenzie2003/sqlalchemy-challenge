@@ -194,7 +194,9 @@ Output:
 
 
 Resources Folder contains hawaii.sqlite, hawaii_measurements.csv and hawaii_stations.csv
-
+   
+   
+Some code taken from: https://github.com/tsubedy/sqlalchemy-challenge/blob/main/.ipynb_checkpoints/climate_starter-checkpoint.ipynb
    
    
 
